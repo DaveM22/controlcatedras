@@ -1,0 +1,39 @@
+<h2>Nuevo curso</h2>
+<form clrForm [formGroup]="form" clrLayout="vertical" (ngSubmit)="agregarPersona()">
+    <clr-input-container>
+        <label>Dni</label>
+        <input clrInput type="number" formControlName="dni" />
+        <clr-control-error>Error: El campo Dni es obligatorio</clr-control-error>
+    </clr-input-container>
+    <clr-input-container>
+        <label>Nombre</label>
+        <input clrInput type="text" formControlName="nombre" />
+        <clr-control-error>Error: El campo Nombre es obligatorio</clr-control-error>
+    </clr-input-container>
+    <clr-input-container>
+        <label>Apellido</label>
+        <input clrInput type="text" formControlName="apellido" />
+        <clr-control-error>Error: El campo Apellido es obligatorio</clr-control-error>
+    </clr-input-container>
+    <clr-input-container>
+        <label>E-Mail</label>
+        <input clrInput type="email" formControlName="email" />
+        <clr-control-error>Error: El campo Email es obligatorio</clr-control-error>
+    </clr-input-container>
+    <clr-input-container>
+        <label>Legajo</label>
+        <input clrInput type="number" formControlName="legajo" />
+        <clr-control-error>Error: El campo Legajo es obligatorio</clr-control-error>
+    </clr-input-container>
+    <clr-select-container>
+        <label>I've got some options</label>
+        <select clrSelect name="options" formControlName="legajoNumber" required>
+
+        </select>
+        <clr-control-helper>Helper text</clr-control-helper>
+        <clr-control-error>This field is required!</clr-control-error>
+    </clr-select-container>
+
+    <br />
+    <button class="btn btn-success" type="submit" [disabled]="!form.valid">Crear</button>
+</form>+

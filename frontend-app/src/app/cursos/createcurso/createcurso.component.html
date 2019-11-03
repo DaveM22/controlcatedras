@@ -1,0 +1,11 @@
+<form clrForm [formGroup]="form" (ngSubmit)="agregarCurso()">
+    <h2>Nuevo curso</h2>
+    <clr-input-container>
+        <label>Descripción</label>
+        <input clrInput type="text" formControlName="descripcion" />
+        <clr-control-helper>Ejemplo: Comision 104</clr-control-helper>
+        <clr-control-error>Error: El campo descripción es obligatorio</clr-control-error>
+    </clr-input-container>
+    <button class="btn btn-success" [disabled]="!form.valid">Crear</button>
+    <button class="btn btn-danger">Cancelar</button>
+</form>

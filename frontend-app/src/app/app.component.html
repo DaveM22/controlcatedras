@@ -1,0 +1,27 @@
+<clr-main-container>
+    <clr-header>
+        <div class="header-nav" [clr-nav-level]="1">
+
+            <a href="#" class="nav-link nav-text" [routerLink]="[inicio]" routerLinkActive="active"><span
+                    class="nav-text">Inicio</span></a>
+            <a href="#" class="nav-link nav-text" routerLink="/cursos" routerLinkActive="active"><span
+                    class="nav-text">Cursos</span></a>
+            <a href="#" class="nav-link nav-text" routerLink="/personas" routerLinkActive="active"><span
+                    class="nav-text">Personas</span></a>
+        </div>
+    </clr-header>
+    <nav class="subnav">
+
+    </nav>
+    <div class="content-container">
+
+        <main class="content-area  clr-col-12 clr-col-sm-12 clr-col-md-8">
+            <div class="">
+                <router-outlet></router-outlet>
+            </div>
+        </main>
+        <nav class="sidenav" [clr-nav-level]="2">
+            asd
+        </nav>
+    </div>
+</clr-main-container>
