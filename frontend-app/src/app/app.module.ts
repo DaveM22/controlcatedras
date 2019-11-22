@@ -16,6 +16,8 @@ import { NuevapersonaComponent } from './personas/nuevapersona/nuevapersona.comp
 import { CursoService } from './services/curso.service';
 import { PersonaService } from './services/persona.service';
 import { TipopersonaService } from './services/tipopersona.service';
+import { LoginComponent } from './login/login/login.component';
+import { ListaCursosAlumnoComponent } from './cursos_alumno/lista-cursos-alumno/lista-cursos-alumno.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { TipopersonaService } from './services/tipopersona.service';
     CreatecursoComponent,
     EditcursoComponent,
     ListapersonasComponent,
-    NuevapersonaComponent
+    NuevapersonaComponent,
+    LoginComponent,
+    ListaCursosAlumnoComponent
   ],
   imports: [
     Ng2SmartTableModule,

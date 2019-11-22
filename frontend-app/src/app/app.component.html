@@ -1,4 +1,4 @@
-<clr-main-container>
+<clr-main-container *ngIf="router.url !== '/' && router.url !== '/miscursos' ">
     <clr-header>
         <div class="header-nav" [clr-nav-level]="1">
 
@@ -25,3 +25,78 @@
         </nav>
     </div>
 </clr-main-container>
+
+
+<clr-main-container *ngIf="router.url === '/miscursos'">
+    <clr-header>
+        <div class="header-nav" [clr-nav-level]="1">
+
+            <a href="#" class="nav-link nav-text" [routerLink]="[inicio]" routerLinkActive="active"><span
+                    class="nav-text">Inicio</span></a>
+            <a href="#" class="nav-link nav-text" routerLink="/cursos" routerLinkActive="active"><span
+                    class="nav-text">Cursos</span></a>
+            <a href="#" class="nav-link nav-text" routerLink="/personas" routerLinkActive="active"><span
+                    class="nav-text">Personas</span></a>
+        </div>
+    </clr-header>
+    <nav class="subnav">
+
+    </nav>
+    <div class="content-container">
+
+        <main class="content-area  clr-col-12 clr-col-sm-12 clr-col-md-8">
+            <div class="">
+                <router-outlet></router-outlet>
+            </div>
+        </main>
+    </div>
+</clr-main-container>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="login-wrapper" *ngIf="router.url === '/' ">
+    <form class="login">
+        <section class="title">
+            <h3 class="welcome">Bienvenidos</h3>
+            a Control de estados de catedras de UTN FRRO
+            <h5 class="hint">Utiliza tu cuenta proporcionada por el administrador o crea una nueva</h5>
+        </section>
+        <div class="login-group">
+            <clr-select-container>
+                <label class="clr-sr-only">User Role</label>
+                <select clrSelect name="type">
+                    <option value="local">Alumno</option>
+                    <option value="admin">Administrator</option>
+                    <option value="profesor">Profesor</option>
+                </select>
+            </clr-select-container>
+            <clr-input-container>
+                <label class="clr-sr-only">Username</label>
+                <input type="text" name="username" clrInput placeholder="Username" />
+            </clr-input-container>
+            <clr-password-container>
+                <label class="clr-sr-only">Password</label>
+                <input type="password" name="password" clrPassword placeholder="Password" />
+            </clr-password-container>
+            <clr-checkbox-wrapper>
+                <label>Remember me</label>
+                <input type="checkbox" name="rememberMe" clrCheckbox />
+            </clr-checkbox-wrapper>
+            <div class="error active">
+                Invalid user name or password
+            </div>
+            <button type="submit" class="btn btn-primary">NEXT</button>
+            <a href="javascript://" class="signup">Sign up for a Company ID</a>
+        </div>
+    </form>
+</div>

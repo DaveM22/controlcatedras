@@ -86,11 +86,11 @@ public class Persona {
 	}
 
 	public TipoPersona getTipoPersona() {
-		return tipoPersona;
+		return tipopersona;
 	}
 
 	public void setTipoPersona(TipoPersona tipoPersona) {
-		this.tipoPersona = tipoPersona;
+		this.tipopersona = tipoPersona;
 	}
 
 }
