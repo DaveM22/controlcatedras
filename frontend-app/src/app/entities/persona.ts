@@ -1,3 +1,5 @@
+import { TipoPersona } from './tipopersona'
+
 export class Persona {
     idpersona: Number
     dni: Number

@@ -6,29 +6,30 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tipos_persona")
+@Table(name = "tipo_personas")
 public class TipoPersona {
 
     @Id
-    private Long id;
+    @Column(name = "id_tipo")
+    private Long Id;
 
     @Column
-    private String descripcion;
+    private String Descripcion;
 
     public Long getId() {
-        return id;
+        return Id;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        Id = id;
     }
 
     public String getDescripcion() {
-        return descripcion;
+        return Descripcion;
     }
 
     public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+        Descripcion = descripcion;
     }
 
 }

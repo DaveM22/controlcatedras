@@ -16,33 +16,34 @@ public class Persona {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idpersonas;
+	@Column(name = "id")
+	private Long id;
 
-	@Column
+	@Column(name = "dni")
 	private Long dni;
 
-	@Column
+	@Column(name = "nombre")
 	private String nombre;
 
-	@Column
+	@Column(name = "apellido")
 	private String apellido;
 
-	@Column
+	@Column(name = "legajo")
 	private Long legajo;
 
 	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "tipo_persona", referencedColumnName = "id")
+	@JoinColumn(name = "id_tipopersona", referencedColumnName = "id_tipo")
 	private TipoPersona tipopersona;
 
-	@Column
+	@Column(name = "email")
 	private String email;
 
-	public Long getIdpersonas() {
-		return idpersonas;
+	public Long getId() {
+		return id;
 	}
 
 	public void setIdpersonas(Long idpersonas) {
-		this.idpersonas = idpersonas;
+		this.id = idpersonas;
 	}
 
 	public String getNombre() {

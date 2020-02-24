@@ -1,4 +1,4 @@
-<form clrForm [formGroup]="form" (ngSubmit)="agregarCurso()">
+<form clrForm [formGroup]="form" (ngSubmit)="AddCurso()">
     <h2>Nuevo curso</h2>
     <clr-input-container>
         <label>Descripción</label>
@@ -6,6 +6,13 @@
         <clr-control-helper>Ejemplo: Comision 104</clr-control-helper>
         <clr-control-error>Error: El campo descripción es obligatorio</clr-control-error>
     </clr-input-container>
+    <clr-input-container>
+        <label>Año</label>
+        <input clrInput type="number" formControlName="anio" />
+        <clr-control-helper>Ejemplo: 2019</clr-control-helper>
+        <clr-control-error>Error: El campo año del curso no puede estar vacio</clr-control-error>
+    </clr-input-container>
+    <br />
     <button class="btn btn-success" [disabled]="!form.valid">Crear</button>
-    <button class="btn btn-danger">Cancelar</button>
+    <button type="button" class="btn btn-danger" (click)="cancelCreate()">Cancelar</button>
 </form>

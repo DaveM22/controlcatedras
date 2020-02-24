@@ -36,11 +36,7 @@ export class ListaComponent implements OnInit {
 
   data: any = [];
 
-
-
   constructor(private httpCliente: HttpClient, private router: Router) {
-
-
   }
 
   public getCursos() {
@@ -56,10 +52,9 @@ export class ListaComponent implements OnInit {
     this.redirect('editar/' + id);
   }
 
-
-  /**
-   * name
-   */
-
+  public AddCurso(): void {
+    console.log('asd');
+    this.router.navigate(['/cursos/nuevo'], { state: { data: this.data, navigationId: 1 } })
+  }
 
 }

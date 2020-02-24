@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { ListaComponent } from './cursos/lista/lista.component';
 import { CreatecursoComponent } from './cursos/createcurso/createcurso.component';
 import { Routes, RouterModule } from '@angular/router';
@@ -7,6 +7,8 @@ import { ListapersonasComponent } from './personas/listapersonas/listapersonas.c
 import { NuevapersonaComponent } from './personas/nuevapersona/nuevapersona.component';
 import { LoginComponent } from './login/login/login.component';
 import { ListaCursosAlumnoComponent } from './cursos_alumno/lista-cursos-alumno/lista-cursos-alumno.component';
+import { ListaComisionesComponent } from './comisiones/lista-comisiones/lista-comisiones.component';
+import { NuevaComisionComponent } from './comisiones/nueva-comision/nueva-comision.component';
 
 
 const routes: Routes = [
@@ -15,7 +17,9 @@ const routes: Routes = [
   { path: 'cursos/nuevo', component: CreatecursoComponent },
   { path: 'cursos/editar/:id', component: EditcursoComponent },
   { path: 'personas', component: ListapersonasComponent },
-  { path: 'personas/nuevo', component: NuevapersonaComponent }
+  { path: 'personas/nuevo', component: NuevapersonaComponent },
+  { path: 'comisiones', component: ListaComisionesComponent },
+  { path: 'comisiones/nuevo', component: NuevaComisionComponent }
 ];
 
 @NgModule({

@@ -8,6 +8,7 @@ import com.catedrascontrol.main.service.api.CursoServiceAPI;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin(origins = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT })
+@CrossOrigin(origins = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT, RequestMethod.DELETE })
 public class CursoController {
 
     @Autowired
@@ -40,14 +41,18 @@ public class CursoController {
 
     @PostMapping(value = "/cursos")
     public Curso CursoControllertCurso(@RequestBody Curso nuevoCurso) {
-        Curso cur = new Curso();
-        cur.setDescripcion(nuevoCurso.getDescripcion());
-        return this.CursoDaoapi.save(cur);
+        return this.CursoDaoapi.save(nuevoCurso);
     }
 
     @PutMapping(value = "/cursos")
-    public void UpdateCurso(@RequestBody Curso curso) {
-        this.CursoDaoapi.save(curso);
+    public Curso UpdateCurso(@RequestBody Curso curso) {
+        return this.CursoDaoapi.save(curso);
+    }
+
+    @DeleteMapping(value = "/cursos/{id}")
+    public void DeleteCurso(@PathVariable String id) {
+        Long idparameter = Long.valueOf(id);
+        this.CursoDaoapi.delete(idparameter);
     }
 
 }

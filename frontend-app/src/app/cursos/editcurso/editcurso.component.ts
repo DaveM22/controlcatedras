@@ -33,10 +33,7 @@ export class EditcursoComponent implements OnInit, AfterViewInit {
   }
 
   public async getCursoById(id: string) {
-    await this.service.ObtenerCursoPorId(id).subscribe({
-      next: (x: Curso) => { this.MappingToForm(x) },
-      error: (error: any) => console.log("ERROR")
-    });
+
   }
 
   public opencloseModal(value: boolean): void {
@@ -44,8 +41,8 @@ export class EditcursoComponent implements OnInit, AfterViewInit {
   }
 
   public ActualizarCurso(): void {
-    let curso: Curso = { id: Number.parseInt(this.id), descripcion: this.form.get('descripcion').value }
-    this.service.ActualizarCurso(curso);
+    //let curso: Curso = { id: Number.parseInt(this.id), descripcion: this.form.get('descripcion').value }
+    //this.service.ActualizarCurso(curso);
     this.basic = false;
     this.opencloseModal(false);
   }

@@ -26,12 +26,14 @@
         <clr-control-error>Error: El campo Legajo es obligatorio</clr-control-error>
     </clr-input-container>
     <clr-select-container>
-        <label>I've got some options</label>
+        <label>Tipo de persona</label>
         <select clrSelect name="options" formControlName="legajoNumber" required>
-
+            <option value="1">Administrador</option>
+            <option value="2">Profesor</option>
+            <option value="3">Alumno</option>
         </select>
-        <clr-control-helper>Helper text</clr-control-helper>
-        <clr-control-error>This field is required!</clr-control-error>
+        <clr-control-helper>Tipo de persona</clr-control-helper>
+        <clr-control-error>El tipo de persona es obligatorio.</clr-control-error>
     </clr-select-container>
 
     <br />

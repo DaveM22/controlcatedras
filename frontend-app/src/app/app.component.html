@@ -8,6 +8,8 @@
                     class="nav-text">Cursos</span></a>
             <a href="#" class="nav-link nav-text" routerLink="/personas" routerLinkActive="active"><span
                     class="nav-text">Personas</span></a>
+            <a href="#" class="nav-link nav-text" routerLink="/comisiones" routerLinkActive="active"><span
+                    class="nav-text">Comisiones</span></a>
         </div>
     </clr-header>
     <nav class="subnav">
@@ -20,9 +22,6 @@
                 <router-outlet></router-outlet>
             </div>
         </main>
-        <nav class="sidenav" [clr-nav-level]="2">
-            asd
-        </nav>
     </div>
 </clr-main-container>
 
@@ -51,17 +50,6 @@
         </main>
     </div>
 </clr-main-container>
-
-
-
-
-
-
-
-
-
-
-
 
 
 <div class="login-wrapper" *ngIf="router.url === '/' ">

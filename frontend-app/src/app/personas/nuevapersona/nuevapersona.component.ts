@@ -1,17 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { PersonaService } from 'src/app/services/persona.service';
 import { Persona } from 'src/app/entities/persona';
 import { TipopersonaService } from 'src/app/services/tipopersona.service';
 import { TipoPersona } from 'src/app/entities/tipopersona';
+import { INewForm } from 'src/app/util/INewForm';
 
 @Component({
   selector: 'app-nuevapersona',
   templateUrl: './nuevapersona.component.html',
   styleUrls: ['./nuevapersona.component.css']
 })
-export class NuevapersonaComponent implements OnInit {
-
+export class NuevapersonaComponent implements INewForm {
+  PersonaGenerated: Persona = null;
+  @Output() modoFormEvent: EventEmitter<Object> = new EventEmitter<string>();
   form = new FormGroup({
     dni: new FormControl('', Validators.required),
     nombre: new FormControl('', Validators.required),
@@ -21,14 +23,11 @@ export class NuevapersonaComponent implements OnInit {
     legajoNumber: new FormControl('', Validators.required)
   });
 
-  tipos: any[] = [];
-  constructor(private service: PersonaService, private TipopersonaService: TipopersonaService) { }
+  constructor(private service: PersonaService) { }
 
-  ngOnInit() {
-    this.traerListaTipoPersona();
-  }
+  ngOnInit() { }
 
-  public agregarPersona(): void {
+  Add(): void {
     let persona: Persona = {
       idpersona: null,
       dni: this.form.get('dni').value,
@@ -37,18 +36,14 @@ export class NuevapersonaComponent implements OnInit {
       email: this.form.get('email').value,
       legajo: this.form.get('legajo').value,
     }
-
-    this.service.agregarPersona(persona);
-
+    this.service.AddPersona(persona).subscribe(x => this.PersonaGenerated = x);
+    this.ReturnToListEvent();
   }
-  legajoNumber
-
-  public traerListaTipoPersona(): void {
-    this.TipopersonaService.listaTipoPersona().subscribe({
-      next: (x: TipoPersona[]) => { this.tipos = x },
-      error: (error: any) => { console.log('error') }
-    });
+  ReturnToListEvent(): void {
+    this.modoFormEvent.emit({ modo: 'R', per: this.PersonaGenerated });
   }
-
+  cancelCreate(): void {
+    this.modoFormEvent.emit({ modo: 'R' });
+  }
 
 }

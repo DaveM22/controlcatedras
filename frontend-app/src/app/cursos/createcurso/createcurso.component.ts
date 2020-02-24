@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Curso } from 'src/app/entities/curso';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { CursoService } from 'src/app/services/curso.service';
+import { INewForm } from 'src/app/util/INewForm';
 
 @Component({
   selector: 'app-createcurso',
@@ -12,30 +13,35 @@ import { CursoService } from 'src/app/services/curso.service';
 
 @Injectable({ providedIn: 'root' })
 export class CreatecursoComponent implements OnInit {
+
   form = new FormGroup({
-    descripcion: new FormControl('', Validators.required)
+    descripcion: new FormControl('', Validators.required),
+    anio: new FormControl('', Validators.required)
   });
 
-  constructor(private route: Router, private service: CursoService) {
+  constructor(private route: Router, private service: CursoService) { }
 
+  AddCurso(): void {
+    let curso: Curso =
+    {
+      id: null,
+      descripcion: this.form.get("descripcion").value,
+      anio: Number(this.form.get('anio').value)
+    };
+    this.service.AddCurso(curso).subscribe();
+    this.route.navigate(['cursos'], { state: { data: history.state.data.push(curso), navigationId: 1 } });
   }
 
+  ReturnToListEvent(): void {
+    throw new Error("Method not implemented.");
+  }
 
-  public redirect(path: string): void {
-    this.route.navigateByUrl(path);
+  cancelNuevo(): void {
+    this.route.navigate(["cursos"]);
   }
 
   ngOnInit() {
+    console.log(history.state.data);
   }
-
-  /**
-   * agregarCurso
-   */
-  public agregarCurso(): void {
-    let curso: Curso = { id: null, descripcion: this.form.get("descripcion").value };
-    console.log(curso);
-    this.service.AddCurso(curso);
-  }
-
 
 }
